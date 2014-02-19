@@ -41,12 +41,12 @@
 (setq org-confirm-babel-evaluate nil)
 ;;(setq org-export-babel-evaluate nil)
 
-(unless (boundp 'org-export-latex-classes)
+(unless (boundp 'org-latex-classes)
   (setq org-export-latex-classes nil))
 
 ;; 'djcb-org-article' for export org documents to the LaTex 'article', using
 ;; XeTeX and some fancy fonts; requires XeTeX (see org-latex-to-pdf-process)
-(add-to-list 'org-export-latex-classes
+(add-to-list 'org-latex-classes
              '("std"
                "\\documentclass[11pt,a4paper]{article}
                 \\usepackage[T1]{fontenc}
@@ -76,7 +76,7 @@
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
-(add-to-list 'org-export-latex-classes
+(add-to-list 'org-latex-classes
              '("ba-kecs"
                "\\documentclass{ba-kecs}
                 \\usepackage[T1]{fontenc}
@@ -146,6 +146,13 @@
           (lambda ()
             (make-variable-buffer-local 'yas/trigger-key)
             (setq yas/trigger-key [tab]))) 
+
+
+;; PDFs visited in Org-mode are opened in Evince (and not in the default choice) http://stackoverflow.com/a/8836108/789593
+(add-hook 'org-mode-hook
+      '(lambda ()
+         (delete '("\\.pdf\\'" . default) org-file-apps)
+         (add-to-list 'org-file-apps '("\\.pdf\\'" . "evince %s"))))
 
 (require 'org-special-blocks)
 
