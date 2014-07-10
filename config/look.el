@@ -5,8 +5,8 @@
 
 ;;; Transparency:
 ;;(set-frame-parameter (selected-frame) 'alpha '(<active> [<inactive>]))
-(set-frame-parameter (selected-frame) 'alpha '(90 90))
-(add-to-list 'default-frame-alist '(alpha 90 90))
+;(set-frame-parameter (selected-frame) 'alpha '(98 98))
+;(add-to-list 'default-frame-alist '(alpha 98 98))
 
 ;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-themes/themes/")
 ;(load-theme 'hickey t)
