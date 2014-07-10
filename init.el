@@ -65,13 +65,16 @@ method for managing the combo of $HOME/Source and $HOME/lib/emacs.")
 
 
 ; Load generally applicable customizations and definitions first
-(require-libraries-from-list '(look 
+(require-libraries-from-list '(package-config
+                               look 
                                editing 
                                keybindings
                                haskell-config
                                org-config
                                pkgbuild-mode-config
-                               flyspell-config))
+                               flyspell-config
+                               python-config
+                               projectile-config))
 
 ; Then load mode- and task-specific configurations. This is different
 ; from machine-to-machine, so use a machine-specific list to know what
